@@ -28,6 +28,7 @@ describe('API Testing Reqres with Modular Design', () => {
         }).then((response) => {
             expect(response.status).to.eq(201);
             expect(response.body).to.have.property('name', name);
+            expect(response.body).to.have.property('job', 'QA Engineer');
         });
     });
 
@@ -35,14 +36,17 @@ describe('API Testing Reqres with Modular Design', () => {
         ApiUtils.postRequest('api/users', {
             job: 'QA Engineer'
         }).then((response) => {
-            expect(response.status).to.eq(400);
+            expect(response.status).to.eq(201);
+            expect(response.body).to.not.have.property('name');
         });
     });
 
     it('should create user without body', () => {
         ApiUtils.postRequest('api/users', {})
             .then((response) => {
-                expect(response.status).to.eq(400);
+                expect(response.status).to.eq(201);
+                expect(response.body).to.not.have.property('name');
+                expect(response.body).to.not.have.property('job');
             });
     });
 
@@ -52,6 +56,8 @@ describe('API Testing Reqres with Modular Design', () => {
             job: 'Updated Job'
         }).then((response) => {
             expect(response.status).to.eq(200);
+            expect(response.body).to.have.property('name', 'Updated Name');
+            expect(response.body).to.have.property('job', 'Updated Job');
         });
     });
 
@@ -78,6 +84,7 @@ describe('API Testing Reqres with Modular Design', () => {
         }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.have.property('id');
+            expect(response.body).to.have.property('token');
         });
     });
 
@@ -88,6 +95,7 @@ describe('API Testing Reqres with Modular Design', () => {
         }).then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.have.property('id');
+            expect(response.body).to.have.property('token');
         });
     });
 
@@ -95,6 +103,7 @@ describe('API Testing Reqres with Modular Design', () => {
         ApiUtils.postRequest('api/register', {})
             .then((response) => {
                 expect(response.status).to.eq(400);
+                expect(response.body).to.have.property('error',   'Missing email or username');
             });
     });
 
@@ -122,6 +131,7 @@ describe('API Testing Reqres with Modular Design', () => {
             password: 'cityslicka'
         }).then((response) => {
             expect(response.status).to.eq(400);
+            expect(response.body).to.have.property('error',   'Missing email or username');
         });
     });
 
@@ -129,6 +139,7 @@ describe('API Testing Reqres with Modular Design', () => {
         ApiUtils.postRequest('api/login', {})
             .then((response) => {
                 expect(response.status).to.eq(400);
+                expect(response.body).to.have.property('error',   'Missing email or username');
             });
     });
 
