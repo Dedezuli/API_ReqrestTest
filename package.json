@@ -1,0 +1,55 @@
+{
+  "name": "cypress-api-test",
+  "version": "1.0.0",
+  "description": "Repository created in the article REST API Tests with Cypress",
+  "main": "index.js",
+  "types": "cypress",
+  "files": [
+    "templates/",
+    "index.js"
+  ],
+  "scripts": {
+    "cy:open": "npx cypress open",
+    "e2e": "npx cypress run",
+    "prettier": "prettier --write . --config ./.prettierrc",
+    "test:linux": "npx cypress run --spec cypress/e2e/Dashboard/$npm_config_modul/**/* --browser chrome",
+    "test:windows": "npx cypress run --spec cypress/e2e/Dashboard/%npm_config_modul%/**/* --browser chrome",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.edenfarm.id/project-version3/erp-test/api-cypress"
+  },
+  "keywords": [
+    "cypress",
+    "cypress-boilerplate",
+    "cypress-template",
+    "boilerplate",
+    "template"
+  ],
+  "author": "QA Edenfarm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://git.edenfarm.id/project-version3/erp-test/api-cypress/issues"
+  },
+  "homepage": "https://git.edenfarm.id/project-version3/erp-test/api-cypress#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^12.5.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-wait-until": "^1.4.1",
+    "date-fns": "^2.29.3",
+    "eslint": "^6.1.0",
+    "eslint-plugin-cypress": "^2.6.1",
+    "faker": "^5.5.3",
+    "husky": "^8.0.3",
+    "prettier": "2.8.3",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "cypress-plugin-api": "^1.2.3",
+    "fs-utils": "^0.7.0",
+    "reload": "^3.2.0"
+  }
+}
