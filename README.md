@@ -1,6 +1,6 @@
-# qa-cypress
+# cypress
 
-Frontend testing for New Core using [Cypress](https://cypress.io)
+Frontend testing using [Cypress](https://cypress.io)
 
 ## Getting Started
 
@@ -53,4 +53,3 @@ Always put this line at the top of spec file
 ```
 /// <reference types="Cypress" />
 ```
-# API-cypress-gorest.co.in
